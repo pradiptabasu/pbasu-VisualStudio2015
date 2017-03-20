@@ -1,0 +1,29 @@
+        <hsf:dataCellLocators xmlns:hsf="http://hyperion.com/hsf/hsfwebservices/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:schema>
+               <xs:element name="DataCells">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="Account" type="xs:string" />
+                        <xs:element name="Time" type="xs:string" />
+                        <xs:element name="Scenario" type="xs:string" />
+                        <xs:element name="Measure" type="xs:string" />
+                        <xs:element name="CustomMembers" type="xs:string" />
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:schema>
+            <DataCells>
+				<Account>100.00.000</Account>
+                <Time>2008</Time>
+                <Scenario>Crude High</Scenario>
+                <Measure>Output</Measure>
+                <CustomMembers/>
+            </DataCells>
+			<DataCells>
+				<Account>2100.00.000</Account>
+                <Time>2208</Time>
+                <Scenario>Crude</Scenario>
+                <Measure>All</Measure>
+                <CustomMembers/>
+            </DataCells>
+         </hsf:dataCellLocators>

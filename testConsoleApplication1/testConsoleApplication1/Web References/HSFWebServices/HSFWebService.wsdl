@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://hyperion.com/hsf/hsfwebservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://hyperion.com/hsf/hsfwebservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://hyperion.com/hsf/hsfwebservices/">
+      <s:element name="CloseAllEntities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkIn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="releaseLock" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseAllEntitiesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CloseDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EnumCubes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumCubesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumCubesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EnumEntities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="action" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumEntitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumEntitiesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="database" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EnumServers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumServersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumServersResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSessionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSessionFromToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSessionFromTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSessionFromTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseSessionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSessionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumDatabases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumDatabasesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumDatabasesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumOpenedEntities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumOpenedEntitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumOpenedEntitiesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenServer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenServerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CloseServer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseServerResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CloseAllEntitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseAllEntities" />
+  </wsdl:message>
+  <wsdl:message name="CloseAllEntitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseAllEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseDatabase" />
+  </wsdl:message>
+  <wsdl:message name="CloseDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumCubesSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumCubes" />
+  </wsdl:message>
+  <wsdl:message name="EnumCubesSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumCubesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumEntitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumEntities" />
+  </wsdl:message>
+  <wsdl:message name="EnumEntitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenDatabase" />
+  </wsdl:message>
+  <wsdl:message name="OpenDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumServersSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumServers" />
+  </wsdl:message>
+  <wsdl:message name="EnumServersSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSession" />
+  </wsdl:message>
+  <wsdl:message name="CreateSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSessionFromTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSessionFromToken" />
+  </wsdl:message>
+  <wsdl:message name="CreateSessionFromTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSessionFromTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseSession" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumDatabasesSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumDatabases" />
+  </wsdl:message>
+  <wsdl:message name="EnumDatabasesSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumDatabasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumOpenedEntitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumOpenedEntities" />
+  </wsdl:message>
+  <wsdl:message name="EnumOpenedEntitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumOpenedEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenServerSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenServer" />
+  </wsdl:message>
+  <wsdl:message name="OpenServerSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseServerSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseServer" />
+  </wsdl:message>
+  <wsdl:message name="CloseServerSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseServerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HSFWebServiceSoap">
+    <wsdl:operation name="CloseAllEntities">
+      <wsdl:input message="tns:CloseAllEntitiesSoapIn" />
+      <wsdl:output message="tns:CloseAllEntitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseDatabase">
+      <wsdl:input message="tns:CloseDatabaseSoapIn" />
+      <wsdl:output message="tns:CloseDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumCubes">
+      <wsdl:input message="tns:EnumCubesSoapIn" />
+      <wsdl:output message="tns:EnumCubesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumEntities">
+      <wsdl:input message="tns:EnumEntitiesSoapIn" />
+      <wsdl:output message="tns:EnumEntitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenDatabase">
+      <wsdl:input message="tns:OpenDatabaseSoapIn" />
+      <wsdl:output message="tns:OpenDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumServers">
+      <wsdl:input message="tns:EnumServersSoapIn" />
+      <wsdl:output message="tns:EnumServersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <wsdl:input message="tns:CreateSessionSoapIn" />
+      <wsdl:output message="tns:CreateSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSessionFromToken">
+      <wsdl:input message="tns:CreateSessionFromTokenSoapIn" />
+      <wsdl:output message="tns:CreateSessionFromTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <wsdl:input message="tns:CloseSessionSoapIn" />
+      <wsdl:output message="tns:CloseSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <wsdl:input message="tns:GetSessionInfoSoapIn" />
+      <wsdl:output message="tns:GetSessionInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumDatabases">
+      <wsdl:input message="tns:EnumDatabasesSoapIn" />
+      <wsdl:output message="tns:EnumDatabasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumOpenedEntities">
+      <wsdl:input message="tns:EnumOpenedEntitiesSoapIn" />
+      <wsdl:output message="tns:EnumOpenedEntitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenServer">
+      <wsdl:input message="tns:OpenServerSoapIn" />
+      <wsdl:output message="tns:OpenServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseServer">
+      <wsdl:input message="tns:CloseServerSoapIn" />
+      <wsdl:output message="tns:CloseServerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HSFWebServiceSoap" type="tns:HSFWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CloseAllEntities">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseAllEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseDatabase">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumCubes">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumCubes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumEntities">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenDatabase">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/OpenDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumServers">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumServers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CreateSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSessionFromToken">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CreateSessionFromToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetSessionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumDatabases">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumDatabases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumOpenedEntities">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumOpenedEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenServer">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/OpenServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseServer">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HSFWebServiceSoap12" type="tns:HSFWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CloseAllEntities">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseAllEntities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseDatabase">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumCubes">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumCubes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumEntities">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumEntities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenDatabase">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/OpenDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumServers">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CreateSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSessionFromToken">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CreateSessionFromToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetSessionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumDatabases">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumDatabases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumOpenedEntities">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumOpenedEntities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenServer">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/OpenServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseServer">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HSFWebService">
+    <wsdl:port name="HSFWebServiceSoap" binding="tns:HSFWebServiceSoap">
+      <soap:address location="http://oa8050.us.oracle.com/HSFWebServices/HSFWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HSFWebServiceSoap12" binding="tns:HSFWebServiceSoap12">
+      <soap12:address location="http://oa8050.us.oracle.com/HSFWebServices/HSFWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

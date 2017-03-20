@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="testConsoleApplication1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="testConsoleApplication1_HSFWebServices_HSFWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://oa8050.us.oracle.com/HSFWebServices/HSFWebService.asmx</Value>
+    </Setting>
+    <Setting Name="testConsoleApplication1_HSFEntityWebServices_HSFEntityWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://oa8050.us.oracle.com/HSFWebServices/HSFEntityWebService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

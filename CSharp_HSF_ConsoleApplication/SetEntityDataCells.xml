@@ -1,0 +1,114 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataCells">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Entity" type="xs:string" minOccurs="0" />
+                <xs:element name="Account" type="xs:string" minOccurs="0" />
+                <xs:element name="Time" type="xs:string" minOccurs="0" />
+                <xs:element name="Scenario" type="xs:string" minOccurs="0" />
+                <xs:element name="Measure" type="xs:string" minOccurs="0" />
+                <xs:element name="Value" type="xs:string" minOccurs="0" />
+                <xs:element name="CustomMembers" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>Time</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>2008</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>2009</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>2010</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>2011</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>2012</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>2013</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>Jan13</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>Feb13</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+  <DataCells>
+    <Entity>Oil_n_Gas</Entity>
+    <Account>100.00.000</Account>
+    <Time>Mar13</Time>
+    <Scenario>Base</Scenario>
+    <Measure>Output</Measure>
+    <Value>100</Value>
+    <CustomMembers />
+  </DataCells>
+</NewDataSet>

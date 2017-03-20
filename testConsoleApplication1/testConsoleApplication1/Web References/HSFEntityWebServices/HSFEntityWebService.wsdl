@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://hyperion.com/hsf/hsfwebservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://hyperion.com/hsf/hsfwebservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://hyperion.com/hsf/hsfwebservices/">
+      <s:element name="OpenEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkOut" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpenEntityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkIn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="releaseLock" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseEntityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EnumAccounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumAccountsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumScenarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumScenariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumScenariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumTimePeriods">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumTimePeriodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumTimePeriodsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumMeasures">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumMeasuresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumMeasuresResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumCustomDimensions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumCustomDimensionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumCustomDimensionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumCustomMembers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="action" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumCustomMembersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumCustomMembersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntityDataCells">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataCellLocators">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntityDataCellsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEntityDataCellsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEntityDataCells">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataCellInfos">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEntityDataCellsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetEntityDataCellsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Calculate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="normalCalc" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="reverseCalc" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalculateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportExtendedAnalytics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="analysisVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportExtendedAnalyticsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newEntity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="baseEntity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rootEntity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentEntity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="keepData" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateEntityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEntityLockInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntityLockInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEntityLockInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseEntityLock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseEntityLockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReleaseEntityLockResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScenarioInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScenarioInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScenarioInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetForecastInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scenario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetForecastInfoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetScenarioInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scenarioInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetScenarioInfoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="OpenEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:OpenEntity" />
+  </wsdl:message>
+  <wsdl:message name="OpenEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:OpenEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:CloseEntity" />
+  </wsdl:message>
+  <wsdl:message name="CloseEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:CloseEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumAccounts" />
+  </wsdl:message>
+  <wsdl:message name="EnumAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumScenariosSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumScenarios" />
+  </wsdl:message>
+  <wsdl:message name="EnumScenariosSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumScenariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumTimePeriodsSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumTimePeriods" />
+  </wsdl:message>
+  <wsdl:message name="EnumTimePeriodsSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumTimePeriodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumMeasuresSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumMeasures" />
+  </wsdl:message>
+  <wsdl:message name="EnumMeasuresSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumMeasuresResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumCustomDimensionsSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumCustomDimensions" />
+  </wsdl:message>
+  <wsdl:message name="EnumCustomDimensionsSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumCustomDimensionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumCustomMembersSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumCustomMembers" />
+  </wsdl:message>
+  <wsdl:message name="EnumCustomMembersSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumCustomMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEntityDataCellsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEntityDataCells" />
+  </wsdl:message>
+  <wsdl:message name="GetEntityDataCellsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEntityDataCellsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEntityDataCellsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEntityDataCells" />
+  </wsdl:message>
+  <wsdl:message name="SetEntityDataCellsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEntityDataCellsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalculateSoapIn">
+    <wsdl:part name="parameters" element="tns:Calculate" />
+  </wsdl:message>
+  <wsdl:message name="CalculateSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportExtendedAnalyticsSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportExtendedAnalytics" />
+  </wsdl:message>
+  <wsdl:message name="ExportExtendedAnalyticsSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportExtendedAnalyticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:CreateEntity" />
+  </wsdl:message>
+  <wsdl:message name="CreateEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:CreateEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEntityLockInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEntityLockInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEntityLockInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEntityLockInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseEntityLockSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseEntityLock" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseEntityLockSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseEntityLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScenarioInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScenarioInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetScenarioInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScenarioInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetForecastInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetForecastInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetForecastInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetForecastInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetScenarioInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetScenarioInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetScenarioInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetScenarioInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HSFEntityWebServiceSoap">
+    <wsdl:operation name="OpenEntity">
+      <wsdl:input message="tns:OpenEntitySoapIn" />
+      <wsdl:output message="tns:OpenEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseEntity">
+      <wsdl:input message="tns:CloseEntitySoapIn" />
+      <wsdl:output message="tns:CloseEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumAccounts">
+      <wsdl:input message="tns:EnumAccountsSoapIn" />
+      <wsdl:output message="tns:EnumAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumScenarios">
+      <wsdl:input message="tns:EnumScenariosSoapIn" />
+      <wsdl:output message="tns:EnumScenariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumTimePeriods">
+      <wsdl:input message="tns:EnumTimePeriodsSoapIn" />
+      <wsdl:output message="tns:EnumTimePeriodsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumMeasures">
+      <wsdl:input message="tns:EnumMeasuresSoapIn" />
+      <wsdl:output message="tns:EnumMeasuresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumCustomDimensions">
+      <wsdl:input message="tns:EnumCustomDimensionsSoapIn" />
+      <wsdl:output message="tns:EnumCustomDimensionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumCustomMembers">
+      <wsdl:input message="tns:EnumCustomMembersSoapIn" />
+      <wsdl:output message="tns:EnumCustomMembersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityDataCells">
+      <wsdl:input message="tns:GetEntityDataCellsSoapIn" />
+      <wsdl:output message="tns:GetEntityDataCellsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEntityDataCells">
+      <wsdl:input message="tns:SetEntityDataCellsSoapIn" />
+      <wsdl:output message="tns:SetEntityDataCellsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Calculate">
+      <wsdl:input message="tns:CalculateSoapIn" />
+      <wsdl:output message="tns:CalculateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportExtendedAnalytics">
+      <wsdl:input message="tns:ExportExtendedAnalyticsSoapIn" />
+      <wsdl:output message="tns:ExportExtendedAnalyticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEntity">
+      <wsdl:input message="tns:CreateEntitySoapIn" />
+      <wsdl:output message="tns:CreateEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityLockInfo">
+      <wsdl:input message="tns:GetEntityLockInfoSoapIn" />
+      <wsdl:output message="tns:GetEntityLockInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseEntityLock">
+      <wsdl:input message="tns:ReleaseEntityLockSoapIn" />
+      <wsdl:output message="tns:ReleaseEntityLockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScenarioInfo">
+      <wsdl:input message="tns:GetScenarioInfoSoapIn" />
+      <wsdl:output message="tns:GetScenarioInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetForecastInfo">
+      <wsdl:input message="tns:SetForecastInfoSoapIn" />
+      <wsdl:output message="tns:SetForecastInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetScenarioInfo">
+      <wsdl:input message="tns:SetScenarioInfoSoapIn" />
+      <wsdl:output message="tns:SetScenarioInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HSFEntityWebServiceSoap" type="tns:HSFEntityWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OpenEntity">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/OpenEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseEntity">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumAccounts">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumScenarios">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumScenarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumTimePeriods">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumTimePeriods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumMeasures">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumMeasures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumCustomDimensions">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumCustomDimensions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumCustomMembers">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumCustomMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityDataCells">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetEntityDataCells" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEntityDataCells">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/SetEntityDataCells" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calculate">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/Calculate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportExtendedAnalytics">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/ExportExtendedAnalytics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEntity">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CreateEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityLockInfo">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetEntityLockInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseEntityLock">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/ReleaseEntityLock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScenarioInfo">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetScenarioInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetForecastInfo">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/SetForecastInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetScenarioInfo">
+      <soap:operation soapAction="http://hyperion.com/hsf/hsfwebservices/SetScenarioInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HSFEntityWebServiceSoap12" type="tns:HSFEntityWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OpenEntity">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/OpenEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseEntity">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CloseEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumAccounts">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumScenarios">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumScenarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumTimePeriods">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumTimePeriods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumMeasures">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumMeasures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumCustomDimensions">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumCustomDimensions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumCustomMembers">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/EnumCustomMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityDataCells">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetEntityDataCells" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEntityDataCells">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/SetEntityDataCells" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calculate">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/Calculate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportExtendedAnalytics">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/ExportExtendedAnalytics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEntity">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/CreateEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityLockInfo">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetEntityLockInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseEntityLock">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/ReleaseEntityLock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScenarioInfo">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/GetScenarioInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetForecastInfo">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/SetForecastInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetScenarioInfo">
+      <soap12:operation soapAction="http://hyperion.com/hsf/hsfwebservices/SetScenarioInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HSFEntityWebService">
+    <wsdl:port name="HSFEntityWebServiceSoap" binding="tns:HSFEntityWebServiceSoap">
+      <soap:address location="http://oa8050.us.oracle.com/HSFWebServices/HSFEntityWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HSFEntityWebServiceSoap12" binding="tns:HSFEntityWebServiceSoap12">
+      <soap12:address location="http://oa8050.us.oracle.com/HSFWebServices/HSFEntityWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

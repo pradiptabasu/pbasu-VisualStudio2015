@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://oa8050.us.oracle.com/HSFWebServices/HSFWebService.asmx?wsdl" docRef="http://oa8050.us.oracle.com/HSFWebServices/HSFWebService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://oa8050.us.oracle.com/HSFWebServices/HSFWebService.asmx" xmlns:q1="http://hyperion.com/hsf/hsfwebservices/" binding="q1:HSFWebServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://oa8050.us.oracle.com/HSFWebServices/HSFWebService.asmx" xmlns:q2="http://hyperion.com/hsf/hsfwebservices/" binding="q2:HSFWebServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
